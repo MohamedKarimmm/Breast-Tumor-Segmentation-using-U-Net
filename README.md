@@ -1,62 +1,136 @@
-# Brain Tumor Segmentation using U-Net
+# Breast Tumor Segmentation using U-Net
+
+A Deep Learning-based medical image segmentation project for breast tumor region extraction from mammogram images using the U-Net architecture.
+
+---
 
 ## Overview
-This project implements a U-Net deep learning model for medical image segmentation.
 
-The goal is to detect and segment brain tumors from MRI images.
+This project focuses on breast tumor segmentation from medical mammogram images using U-Net, a convolutional neural network designed for biomedical image segmentation tasks.
+
+The system predicts pixel-level masks to accurately highlight tumor regions in breast images.
+
+---
+
+## Objective
+
+The main goal of the project is to automatically segment suspicious tumor regions from mammogram images to assist in early breast cancer diagnosis.
 
 ---
 
 ## Dataset
-The dataset consists of:
-- Brain MRI images
-- Corresponding segmentation masks
 
-The data was loaded manually and preprocessed before training.
+The dataset contains:
+
+* Mammogram Images
+* Corresponding Mask Images
+
+Each mask represents the exact tumor region in the image.
+
+The dataset was divided into:
+
+* Training Set
+* Validation Set
+* Test Set
+
+---
+
+## Model Architecture
+
+The project uses the U-Net architecture which consists of:
+
+* Encoder (Downsampling)
+* Bottleneck
+* Decoder (Upsampling)
+* Skip Connections
+
+This structure helps preserve important spatial features for accurate segmentation.
 
 ---
 
 ## Preprocessing
-- Images were resized to (128 × 128)
-- Pixel values were normalized
-- Masks were converted to binary format
 
----
+Applied preprocessing techniques including:
 
-## Model
-A U-Net architecture was implemented using TensorFlow/Keras.
+* Image resizing
+* Normalization
+* Mask preprocessing
+* Data augmentation
 
-The model consists of:
-- Encoder (downsampling)
-- Bottleneck
-- Decoder (upsampling)
+to improve segmentation performance.
 
 ---
 
 ## Training
-- Optimizer: Adam
-- Loss Function: Binary Crossentropy
-- Metric: Accuracy
+
+The model was trained using:
+
+* Binary Cross Entropy Loss
+* Adam Optimizer
+* GPU acceleration
+
+The model learns to generate segmentation masks for tumor regions.
+
+---
+
+## Evaluation Metrics
+
+The segmentation model was evaluated using:
+
+* Dice Coefficient
+* IoU (Intersection over Union)
+* Accuracy
+
+The model achieved strong segmentation performance on validation and test images.
 
 ---
 
 ## Results
-- Training accuracy reached ~96%
-- The model was able to segment tumor regions from MRI scans
+
+The system successfully generated segmentation masks highlighting tumor regions in mammogram images with high accuracy.
+
+Predicted masks closely matched the ground truth masks.
 
 ---
 
-## Output
-The model generates predicted masks highlighting tumor areas.
+## Technologies Used
+
+* Python
+* TensorFlow / Keras
+* U-Net
+* OpenCV
+* NumPy
+* Matplotlib
 
 ---
 
-## Run the Project
-You can run the notebook on Google Colab:
+## Project Structure
 
-[Open in Colab](https://colab.research.google.com/drive/1VxN1gaW5-YMCxGqdyWlJKcTtgiMzpl2y?usp=sharing)
+```bash id="0m6l9v"
+project/
+│
+├── train/
+├── valid/
+├── test/
+├── images/
+├── masks/
+├── unet_model.h5
+├── segmentation.ipynb
+└── README.md
+```
 
 ---
 
-## Conclusion
-This project demonstrates the effectiveness of U-Net in medical image segmentation tasks.
+## Future Improvements
+
+* Improve segmentation accuracy using larger datasets
+* Support DICOM medical images
+* Deploy segmentation model as API
+* Integrate with full breast cancer analysis system
+
+---
+
+## Author
+
+Mohamed Karim
+
